@@ -1,0 +1,101 @@
+/* Grįžti į kolekciją mygtukas */
+.back-to-collection {
+  text-align: center; /* Centruoja mygtuką */
+  margin-top: 30px; /* Atstumas nuo kitų elementų */
+  margin-bottom: 50px; /* Atstumas nuo footer */
+}
+
+.back-to-collection-btn {
+  @extend .btn__secondary; /* Išplečia stilius iš .btn__secondary klasės */
+  font-size: 18px; /* Nustato mygtuko šrifto dydį 18px */
+
+  @include mobile {
+      font-size: 16px; /* Mažesnis šrifto dydis mobiliajame */
+      padding: 10px 20px; /* Mažesnis atstumas mygtuko kraštuose mobiliajame */
+  }
+}
+
+/* Suknelės informacija */
+.dress-details {
+  padding: 40px 0; /* Prideda 40px pagalvę viršuje ir apačioje */
+  background-color: #fff; /* Nustato baltą foną */
+  text-align: center; /* Centruoja tekstą */
+}
+
+.dress-details h1 {
+  font-size: 36px; /* Pagrindinės antraštės šrifto dydis 36px */
+  color: #333; /* Tamsiai pilka spalva */
+  margin-bottom: 20px; /* Prideda 20px tarpą po antrašte */
+}
+
+.dress-details p {
+  font-size: 18px; /* Teksto šrifto dydis 18px */
+  color: #666; /* Šviesiai pilka spalva */
+  line-height: 1.6; /* Padidina tarpą tarp eilučių */
+  margin-bottom: 20px; /* Prideda 20px tarpą apačioje */
+  max-width: 800px; /* Nustato maksimalią teksto plotį 800px */
+  margin: 0 auto; /* Centruoja tekstą */
+}
+
+.dress-details img {
+  max-width: 60%; /* Nuotrauka užims visą tėvinio elemento plotį */
+  height: auto; /* Išlaiko nuotraukos proporcijas */
+  border-radius: 10px; /* Apvalina nuotraukos kampus */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria šešėlį aplink nuotrauką */
+}
+
+.main-image {
+  max-width: 300px; /* Nustato maksimalią pagrindinės nuotraukos plotį */
+  height: auto; /* Išlaiko nuotraukos proporcijas */
+  margin: 0 auto; /* Centruoja nuotrauką */
+  cursor: pointer; /* Rodyklė pasikeičia į ranką */
+}
+
+.additional-images {
+  display: flex;
+  justify-content: center; /* Centruoja papildomas nuotraukas */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.additional-image {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 2px;
+}
+
+.additional-image:hover {
+  border-color: #000;
+}
+
+/* Magnify effect */
+.magnify {
+  transition: transform 0.2s, cursor 0.2s; /* Animation */
+}
+
+.magnify.magnified {
+  transform: scale(2); /* Maksimalus didinimo dydis */
+  cursor: zoom-out; /* Change cursor to zoom-out */
+}
+
+/* Media query - mobilieji įrenginiai */
+@media (max-width: 768px) {
+  .dress-details h1 {
+      font-size: 28px; /* Mažesnis antraštės šrifto dydis mobiliajame */
+  }
+
+  .dress-details p {
+      font-size: 16px; /* Mažesnis teksto šrifto dydis mobiliajame */
+  }
+
+  .back-to-collection-btn {
+      font-size: 16px; /* Mažesnis mygtuko šrifto dydis mobiliajame */
+      padding: 10px 20px; /* Mažesnis mygtuko paddingas mobiliajame */
+  }
+  
+  header a {
+      font-size: 16px; /* Mažesnis šrifto dydis nuorodoms mobiliajame */
+  }
+}

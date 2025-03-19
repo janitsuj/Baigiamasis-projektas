@@ -1,0 +1,101 @@
+.reservation {
+    padding: 60px 0;  // Prideda vidinį atstumą viršuje ir apačioje, kad būtų erdvės aplink turinį.
+    text-align: center;  // Centruoja visą turinį (pvz., antraštes) horizontaliai.
+    background-color: $background-color;  // Nustato foną pagal kintamąjį $background-color.
+
+    h2 {
+        @extend .section-title;  // Panaudoja anksčiau apibrėžtą .section-title stilių, kad h2 atitiktų sekcijų antraštės stilių.
+    }
+
+    h3 {
+        font-size: 24px;  // Nustato h3 antraštės šriftą kaip 24px.
+        margin-bottom: $spacing-medium;  // Prideda vidinį atstumą nuo apačios (pagal kintamąjį $spacing-medium).
+        color: $text-color;  // Nustato tekstui spalvą pagal kintamąjį $text-color.
+    }
+
+    // Formos blokas
+    .contact-form {
+        @extend .card;  // Panaudoja .card stilių, kad formos blokas būtų suapvalintais kampais ir švelniu šešėliu.
+        max-width: 600px;  // Nustato maksimalų formos plotį.
+        margin: 0 auto;  // Centruoja formą horizontaliai.
+        text-align: left;  // Nustato formos turinį (etiketes, įvesties laukus) lygiuoti kairėje.
+        padding: $spacing-large;  // Prideda vidinį atstumą aplink formos turinį pagal kintamąjį $spacing-large.
+
+        // Formos grupės (input ir textarea)
+        .form-group {
+            margin-bottom: $spacing-medium;  // Prideda atstumą tarp formos grupių (label + input/textarea).
+
+            label {
+                display: block;  // Padaro, kad etiketė būtų blokuojama ir užimtų visą eilutę.
+                margin-bottom: 8px;  // Nustato atstumą tarp etiketės ir įvesties laukelio.
+                font-size: 16px;  // Nustato etiketės šriftą.
+                color: $text-color;  // Nustato etiketės tekstui spalvą.
+                font-weight: 500;  // Nustato etiketės šrifto storį.
+            }
+
+            input,
+            textarea {
+                width: 100%;  // Nustato įvesties laukelio ir teksto srities plotį, kad užimtų visą galimą plotą.
+                padding: 12px;  // Nustato vidinį atstumą (padding) visose pusėse.
+                border: 1px solid #ccc;  // Nustato pilką rėmą aplink laukelius.
+                border-radius: 5px;  // Suapvalina kampus.
+                font-size: 16px;  // Nustato šrifto dydį.
+                font-family: $font-family;  // Nustato šrifto šeimą pagal kintamąjį $font-family.
+                transition: border-color 0.3s;  // Nustato švelnų perėjimą (transition), kai keičiasi rėmo spalva.
+
+                // Fokusavus įvesties laukelį
+                &:focus {
+                    border-color: $secondary-color;  // Rėmo spalva pasikeičia į antrinę spalvą (pagal kintamąjį).
+                    outline: none;  // Pašalina numatytąjį kontūrą (outline) aplink laukelį.
+                }
+            }
+
+            textarea {
+                resize: vertical;  // Leis naudotojui perkelti tekstinio laukelio aukštį.
+                min-height: 150px;  // Nustato minimalų aukštį teksto laukeliui.
+            }
+        }
+
+        // Pateikimo mygtukas
+        .submit-btn {
+            @extend .btn;  // Panaudoja bendrą mygtuko stilių.
+            @extend .btn__primary;  // Panaudoja antrinį mygtuko stilių.
+            font-size: 18px;  // Nustato mygtuko šrifto dydį.
+            padding: 15px 48px;  // Nustato vidinį atstumą aplink mygtuką.
+        }
+    }
+    
+    // Pranešimų (sėkmės ar klaidos) stiliai
+    #message-container {
+        margin-top: $spacing-medium;  // Nustato atstumą virš pranešimo konteinerio.
+        padding: $spacing-small;  // Nustato vidinį atstumą aplink pranešimą.
+        border-radius: 5px;  // Suapvalina kampus.
+        text-align: center;  // Centruoja tekstą.
+        font-size: 16px;  // Nustato šrifto dydį.
+
+        // Stilius sėkmingam pranešimui
+        &.success {
+            background-color: #d4edda;  // Žalia fonas, skirtas sėkmės pranešimams.
+            color: #155724;  // Tamsiai žalia spalva tekstui.
+            border: 1px solid #c3e6cb;  // Švelnus žalias rėmas.
+            display: block;  // Užtikrina, kad pranešimas bus rodomas.
+        }
+
+        // Stilius klaidos pranešimui
+        &.error {
+            background-color: #f8d7da;  // Raudonas fonas klaidos pranešimui.
+            color: #721c24;  // Tamsiai raudona spalva klaidos tekstui.
+            border: 1px solid #f5c6cb;  // Švelnus raudonas rėmas.
+            display: block;  // Užtikrina, kad pranešimas bus rodomas.
+        }
+    }
+
+    // Media užklausa mažesniems ekranams (mobiliesiems įrenginiams)
+    @include mobile {
+        padding: $spacing-medium 0;  // Mažesnis vidinis atstumas viršuje ir apačioje mobiliuose įrenginiuose.
+
+        .contact-form {
+            padding: $spacing-medium;  // Mažesnis vidinis atstumas formos laukeliuose mobiliuose įrenginiuose.
+        }
+    }
+}

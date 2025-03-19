@@ -1,0 +1,42 @@
+.about {
+  padding: 60px 0; /* Prideda 60px viršuje ir apačioje atstumą aplink sekciją */
+  background-color: #f9f9f9; /* Nustato sekcijos foną */
+}
+
+.about h2 {
+  font-size: 36px; /* Nustato antraštės šrifto dydį 36px */
+  margin-bottom: 40px; /* Prideda 40px tarpus po antrašte */
+  color: #333; /* Nustato antraštės spalvą tamsiai pilką (#333) */
+  text-align: center; /* Centre antraštę */
+}
+
+.about .about-content {
+  display: flex; /* Nustato lanksčią dėžę, kad jos elementai būtų išdėstyti pagal lankstų modelį */
+  flex-direction: column;  /* Elementai bus išdėstyti vertikaliai */
+  align-items: flex-start;  /* Lankstus konteineris išdėsto elementus kairėje */
+  gap: 20px; /* Tarpai tarp elementų bus 20px */
+  max-width: 1000px; /* Maksimalus turinio plotis */
+  margin: 0 auto; /* Centruoja elementą pagal horizontalę (jei jis mažesnis už ekraną) */
+  padding: 0 20px; /* Prideda 20px tarpus iš kairės ir dešinės pusės */
+}
+
+.about .about-content p {
+  font-size: 18px; /* Nustato teksto dydį 18px */
+  line-height: 1.6; /* Nustato eilutės aukštį (atstumą tarp eilučių) 1.6 karto didesnį už šrifto dydį */
+  color: #666; /* Nustato teksto spalvą pilką (#666) */
+  width: 100%; /* Tekstas užims visą turimą plotą */
+  text-align: center; /* Nustato, kad tekstas būtų centre */
+}
+
+.about .about-content img {
+  border-radius: 10px; /* Kampai bus suapvalinti 10px */
+  max-width: 100%; /* Nuotrauka užims visą tėvinio elemento plotį */
+  height: auto; /* Aukštis bus proporcingas pločiui */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria švelnų šešėlį aplink nuotrauką */
+}
+
+@media (max-width: 768px) {
+  .about .about-content p {
+      font-size: 16px; /* Mažina šrifto dydį iki 16px mažesniuose ekranuose (pvz., mobiliuose) */
+  }
+}

@@ -1,0 +1,109 @@
+.collection {
+    padding: 40px 0; /* Prideda 40px atstumą viršuje ir apačioje aplink visą kolekciją */
+    text-align: center; /* Centruoja visus elementus, esančius .collection konteineryje */
+    
+    h2 {
+        @extend .section-title; /* Išplečia kitoje vietoje aprašytą klasę .section-title, pridedant tos klasės stilius */
+    }
+
+    .gallery {
+        display: flex; /* Naudojamas lanksčios dėžės modelis, kad galėtumėte valdyti išdėstymą */
+        flex-wrap: wrap; /* Leidžia elementams pertraukti eilutes, kai jie nebetelpa į vieną */
+        gap: $spacing-medium; /* Tarpas tarp galerijos elementų (pagal SCSS kintamąjį $spacing-medium) */
+        justify-content: center; /* Centruoja visus galerijos elementus horizontaliai */
+        margin-bottom: $spacing-large; /* Prideda didelį tarpą apačioje (pagal kintamąjį $spacing-large) */
+
+        &-item {
+            @extend .card; /* Išplečia stilius iš .card klasės */
+            width: calc(33.333% - 40px); /* Nustato kiekvieno elementų pločio trečdalį su atstumu tarp elementų */
+            text-align: center; /* Centruoja tekstą galerijos elemento viduje */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Prideda sklandų perėjimą, kai elementas keičia savo poziciją ir šešėlį */
+            overflow: hidden; /* Slėpia viską, kas išsikiša už elementų ribų */
+            
+            &:hover {
+                transform: translateY(-5px); /* Perkelia elementą 5px aukštyn, kai jis užvedamas pelės */
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sukuria šešėlį aplink elementą, kai jis užvedamas pelės */
+            }
+
+            img {
+                max-width: 100%; /* Nuotrauka užims visą tėvinio elemento plotį */
+                border-radius: 10px 10px 0 0; /* Apvalina tik viršutinius kampus */
+                height: 300px; /* Nustato nuotraukos aukštį 300px */
+                object-fit: cover; /* Užtikrina, kad nuotrauka užims visą erdvę, išlaikydama savo santykį */
+                transition: transform 0.3s ease; /* Sklandus perėjimas, kai nuotrauka keičia savo dydį */
+
+                &:hover {
+                    transform: scale(1.05); /* Nuotrauka padidėja, kai ji užvedama pelės */
+                }
+            }
+
+            h3 {
+                font-size: 24px; /* Antraštės šrifto dydis 24px */
+                margin: 15px 0 10px; /* Prideda tarpus aplink antraštę */
+                color: $text-color; /* Antraštės spalva, kuri yra nustatyta SCSS kintamajame $text-color */
+            }
+
+            p {
+                font-size: 16px; /* Teksto šrifto dydis 16px */
+                color: #666; /* Teksto spalva tamsiai pilka (#666) */
+                margin-bottom: $spacing-small; /* Prideda mažą tarpą apačioje (pagal $spacing-small kintamąjį) */
+            }
+            
+            a {
+                display: block; /* Paverskite nuorodą blokiniu elementu */
+                text-decoration: none; /* Pašalina nuorodos pabraukimą */
+                color: inherit; /* Paveldi spalvą iš tėvinio elemento */
+            }
+        }
+    }
+
+    .btn__primary {
+        margin-top: $spacing-large; /* Prideda didelį tarpą viršuje */
+        display: inline-block; /* Nustato mygtuką kaip inline-block, kad galėtų būti šalia kitų elementų */
+    }
+
+    @include mobile {
+        .gallery-item {
+            width: calc(50% - 20px); /* Nustato elementų plotį 50% su atstumu mažesniuose ekranuose */
+            
+            img {
+                height: 200px; /* Sumažina nuotraukos aukštį iki 200px mažesniuose ekranuose */
+            }
+            
+            h3 {
+                font-size: 20px; /* Sumažina antraštės šrifto dydį iki 20px mažesniuose ekranuose */
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gallery-item {
+            width: 100%; /* Nustato, kad galerijos elementai užims visą plotį mažesniuose ekranuose */
+        }
+    }
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Adjust the gap between filter groups as needed */
+    margin-bottom: 20px; /* Add some space below the filters */
+    flex-wrap: wrap; /* Allow filters to wrap to the next line if needed */
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 120px; /* Adjust the minimum width as needed */
+    max-width: 200px; /* Set a maximum width to make them narrower */
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}

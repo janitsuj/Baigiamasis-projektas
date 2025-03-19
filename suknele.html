@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestuvinės suknelės informacija</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigacija -->
+    <header class="top-navigation">
+        <div class="container">
+            <nav>
+                <a class="top-navigation__logo" href="index.html">
+                    <img src="images/logo.svg" alt="logotipas">
+                </a>
+                <ul class="top-navigation__nav-links">
+                    <li><a href="index.html">Pagrindinis</a></li>
+                    <li><a href="kolekcija.html">Kolekcija</a></li>
+                    <li><a href="/#about">Apie mus</a></li>
+                    <li><a href="/#contact">Kontaktai</a></li>
+                </ul>
+                <a class="top-navigation__contact-us" href="/#reservation">Rezervuok laiką</a>
+                <a class="top-navigation__burger" href="#" id="burger">
+                    <img src="images/burger-icon.svg" alt="burger icon">
+                </a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="dress-details" class="dress-details">
+            <div class="container">
+                <!-- Suknelės pavadinimas -->
+                <h1 id="dress-title"></h1>
+
+                <!-- Suknelės aprašymas -->
+                <p id="dress-description"></p>
+
+                <!-- Suknelės kaina -->
+                <p id="dress-price"></p>
+                
+                <!-- Suknelės nuotrauka -->
+                <img id="dress-image" class="main-image magnify" src="images/placeholder.jpg" alt="Suknelės nuotrauka"> 
+        
+                <!-- Papildomos nuotraukos -->
+                <div id="additional-images" class="additional-images"></div>
+            </div>
+            
+            <!-- Grįžti į kolekciją mygtukas -->
+            <div class="back-to-collection">
+            <a href="kolekcija.html" class="btn btn__primary" id="back-to-collection">Grįžti atgal į kolekciją</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vestuvinių suknelių salonas. Visos teisės saugomos.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/dress.js"></script>
+    <script src="scripts/scripts.js"></script>
+    
+</body>
+
+</html>

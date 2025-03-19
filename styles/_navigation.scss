@@ -1,0 +1,166 @@
+.top-navigation {
+    background-color: #fff; /* Nustato balta foną navigacijai */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Prideda švelnų šešėlį navigacijai */
+    padding: 10px 0; /* Prideda vidinius atstumus viršuje ir apačioje po 10px */
+    position: fixed; /* Nustato navigaciją fiksuotą viršuje, kad ji lieka ekrane kai slenkama */
+    width: 100%; /* Užima visą puslapio plotį */
+    top: 0; /* Nustato, kad navigacija būtų viršuje */
+    z-index: 1000; /* Užtikrina, kad navigacija bus virš kitų elementų */
+    transition: top 0.3s ease; /* Užtikrina sklandų slinkimą, kai navigacija pasikeičia (pvz. slinkimo animacija) */
+
+    nav {
+        display: flex; /* Sukuria lankstų dėžutės modelį, kad elementai būtų išdėstyti eilėje */
+        justify-content: space-between; /* Išdėsto elementus su erdve tarp jų */
+        align-items: center; /* Vertikaliai centroja elementus */
+        padding: 0 $spacing-medium; /* Nustato vidinius atstumus pagal nustatytą tarpą */
+    }
+
+    &__logo img {
+        height: 40px; /* Nustato logotipo aukštį, kad jis būtų 40px */
+    }
+
+    &__nav-links,
+    &__contact-us {
+        display: none; /* Paslepia navigacijos nuorodas ir kontaktų mygtuką pagal nutylėjimą */
+    }
+
+    &__burger {
+        display: flex; /* Leidžia rodyti burger meniu */
+        flex-direction: column; /* Sukuria langelį su 3 eilutėmis burger ikonoje */
+        cursor: pointer; /* Keičia pelės žymeklį į rodyklę, kad būtų aišku, jog tai paspaudžiamas elementas */
+
+        .line {
+            width: 25px; /* Nustato linijos plotį burger meniu */
+            height: 3px; /* Nustato linijos aukštį burger meniu */
+            background-color: $text-color; /* Nustato linijos spalvą pagal teksto spalvą */
+            margin: 4px 0; /* Atstumas tarp linijų */
+        }
+    }
+
+    @media (min-width: 1024px) {
+        nav {
+            padding-top: $spacing-large; /* Prideda viršutinį atstumą pagal nustatytą dydį */
+            padding-bottom: $spacing-large; /* Prideda apatinį atstumą pagal nustatytą dydį */
+        }
+
+        &__nav-links,
+        &__contact-us {
+            display: flex; /* Rodo navigacijos nuorodas ir kontaktų mygtuką didesniuose ekranuose */
+        }
+
+        &__nav-links {
+            gap: $spacing-large; /* Prideda tarpus tarp nuorodų */
+            list-style: none; /* Pašalina sąrašo taškelius */
+
+            li a {
+                font-size: $font-size-base; /* Nustato nuorodų šrifto dydį */
+                line-height: $line-height-base; /* Nustato eilutės aukštį */
+                color: $text-color; /* Nustato nuorodų spalvą */
+                transition: all 0.3s; /* Prideda sklandų perėjimą prie nuorodų pasikeitimų */
+                padding-bottom: 5px; /* Prideda atstumą po nuorodomis */
+                border-bottom: 2px solid transparent; /* Pažymi nuorodas su permatomu apatine linija */
+
+                &:hover {
+                    color: $primary-color; /* Pasikeičia nuorodos spalva, kai pelės žymeklis užveda ant nuorodos */
+                    border-bottom-color: $primary-color; /* Spalva apatinės linijos, kai nuoroda yra paryškinta */
+                }
+            }
+        }
+
+        &__contact-us {
+            font-size: $font-size-base !important; /* Užtikrina, kad fontas bus tinkamo dydžio */
+            line-height: $line-height-base !important; /* Užtikrina, kad eilutės aukštis bus tinkamas */
+            padding: 17px 48px !important; /* Nustato vidinius atstumus su papildomais privalomais dydžiais */
+            border: 1px solid $secondary-color !important; /* Nustato apvado spalvą */
+            border-radius: 24px !important; /* Apvalina kampus */
+            color: $secondary-color !important; /* Nustato teksto spalvą */
+            font-weight: 500 !important; /* Nustato šrifto svorį */
+            transition: all 0.3s !important; /* Užtikrina sklandų perėjimą */
+            cursor: pointer !important; /* Nustato pelės žymeklį, kad elementas būtų paspaudžiamas */
+            text-decoration: none !important; /* Pašalina požiūrį po tekstu */
+            background-color: transparent !important; /* Nustato foną permatomą */
+
+            &:hover {
+                background-color: $secondary-color !important; /* Pasikeičia fonas užvedus pelę */
+                color: #fff !important; /* Tekstas pasikeičia į baltą spalvą */
+            }
+        }
+
+        &__burger {
+            display: none; /* Paslepia burger meniu didesniuose ekranuose */
+        }
+    }
+
+    @media (max-width: 1023px) {
+        &__nav-links {
+            display: none; /* Paslepia navigacijos nuorodas mažesniuose ekranuose */
+            flex-direction: column; /* Sukuria sąrašą stulpelyje */
+            align-items: center !important; /* Centruoja elementus viduje */
+            justify-content: center !important; /* Vertikaliai centruoja elementus */
+            background-color: #fff; /* Fonas baltas */
+            position: absolute; /* Pozicionuoja meniu absoliučiai */
+            top: 80px; /* Nustato atstumą nuo viršaus */
+            right: $spacing-medium; /* Nustato atstumą dešinėje pusėje */
+            left: auto; /* Išjungia kairįjį pozicionavimą */
+            transform: none; /* Pašalina transformaciją */
+            width: 200px; /* Nustato meniu plotį */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Prideda šešėlį */
+            border-radius: 10px; /* Apvalina kampus */
+            padding: $spacing-small; /* Vidiniai atstumai */
+            z-index: 1000; /* Užtikrina, kad meniu bus virš kitų elementų */
+            text-align: center !important; /* Centruoja tekstą */
+            margin: 0 !important; /* Pašalina atstumus aplink meniu */
+
+            &.active {
+                display: flex; /* Rodoma, kai meniu aktyvuojama */
+            }
+
+            li {
+                margin: 10px 0; /* Prideda atstumą tarp meniu elementų */
+                list-style: none !important; /* Pašalina taškus */
+                width: 100%; /* Užtikrina, kad elementai užims visą plotį */
+                text-align: center !important; /* Centruoja tekstą */
+                padding: 0 !important; /* Pašalina atstumus aplink */
+                
+                a {
+                    display: block; /* Užtikrina, kad nuorodos užims visą elementą */
+                    padding: 8px 0; /* Prideda vertikalius atstumus nuorodoms */
+                    color: $text-color; /* Nustato nuorodų spalvą */
+                    font-weight: 500; /* Nustato šrifto svorį */
+                    transition: all 0.3s; /* Prideda sklandų perėjimą */
+                    text-align: center !important; /* Centruoja nuorodų tekstą */
+                    
+                    &:hover {
+                        color: $primary-color; /* Pakeičia spalvą užvedus pelę */
+                    }
+                }
+            }
+        }
+
+        &__contact-us {
+            display: block; /* Rodoma mažesniuose ekranuose */
+            margin: 20px auto; /* Centruoja kontaktų mygtuką */
+            width: fit-content; /* Uždeda plotį pagal turinį */
+            font-size: 14px !important; /* Nustato šrifto dydį */
+            padding: 10px 20px !important; /* Vidiniai atstumai */
+            border: 1px solid $secondary-color !important; /* Nustato apvado spalvą */
+            border-radius: 24px !important; /* Apvalina kampus */
+            color: $secondary-color !important; /* Nustato spalvą */
+            font-weight: 500 !important; /* Nustato šrifto svorį */
+            transition: all 0.3s !important; /* Sklandūs perėjimai */
+            cursor: pointer !important; /* Pelės žymeklis rodys, kad tai paspaudžiamas elementas */
+            background-color: transparent !important; /* Fonas permatomas */
+            text-decoration: none !important; /* Pašalina nuorodų pabraukimą */
+
+            &:hover {
+                background-color: $secondary-color !important; /* Pakeičia foną užvedus pelę */
+                color: #fff !important; /* Pakeičia tekstą į baltą */
+            }
+        }
+
+        &__burger {
+            display: flex; /* Rodo burger meniu mažesniuose ekranuose */
+        }
+    }
+}
+

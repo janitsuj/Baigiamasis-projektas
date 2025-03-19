@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestuvinių suknelių kolekcija</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <!-- Navigacija -->
+    <header class="top-navigation">
+        <div class="container">
+            <nav>
+                <a class="top-navigation__logo" href="index.html">
+                    <img src="images/logo.svg" alt="logotipas">
+                </a>
+                <ul class="top-navigation__nav-links">
+                    <li><a href="index.html">Pagrindinis</a></li>
+                    <li><a href="#collection">Kolekcija</a></li>
+                    <li><a href="/#about">Apie mus</a></li>
+                    <li><a href="/#contact">Kontaktai</a></li>
+                </ul>
+                <a class="top-navigation__contact-us" href="/#reservation">Rezervuok laiką</a>
+                <a class="top-navigation__burger" href="#" id="burger">
+                    <img src="images/burger-icon.svg" alt="burger icon">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero sekcija -->
+    <section id="home" class="hero-section collection-page">
+        <div class="container">
+            <div class="hero-section__content">
+                <h1>Mūsų suknelių kolekcija</h1>
+                <div class="hero-section__text">
+                    <p>Raskite savo tobulą vestuvinę suknelę iš mūsų išskirtinės kolekcijos.</p>
+                    <a href="index.html" class="btn btn__primary">Grįžti į pagrindinį puslapį</a>
+                </div>
+            </div>
+        </div>
+        <figure class="hero-section__image">
+            <img src="images/wedding_dress_0.jpg" alt="Vestuvinė suknelė">
+        </figure>
+    </section>
+
+        <main>
+            <!-- Kolekcijos sekcija -->
+            <section id="collection" class="collection">
+                <div class="container">
+                    
+                    <!-- Filtrai -->
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="style">Stilius:</label>
+                            <select id="style" name="style">
+                                <option value="all">Visi</option>
+                                <option value="classic">Klasikinė</option>
+                                <option value="romantic">Romantiška</option>
+                                <option value="modern">Šiuolaikinė</option>
+                                <option value="minimalist">Minimalistinė</option>
+                                <option value="glamorous">Glaminė</option>
+                                <option value="boho">Bohemiška</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="color">Spalva:</label>
+                            <select id="color" name="color">
+                                <option value="all">Visos</option>
+                                <option value="white">Balta</option>
+                                <option value="ivory">Dramblio kaulo</option>
+                                <option value="champagne">Šampano</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="price">Kaina:</label>
+                            <select id="price" name="price">
+                                <option value="all">Visos</option>
+                                <option value="low">Iki 500€</option>
+                                <option value="medium">500€ - 1000€</option>
+                                <option value="high">Virš 1000€</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <!-- Suknelių galerija -->
+                    <div class="gallery" id="gallery"></div>
+                </div>
+            </section>
+        </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vestuvinių suknelių salonas. Visos teisės saugomos.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/scripts.js"></script>
+    <script src="scripts/dress.js"></script>
+
+</body>
+
+</html>

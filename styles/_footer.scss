@@ -1,0 +1,23 @@
+footer {
+    width: 100%; /* Užima visą ekrano plotį */
+    background-color: $secondary-color; /* Nustato fono spalvą naudojant SCSS kintamąjį $secondary-color */
+    color: #fff; /* Nustato tekstą baltos spalvos */
+    text-align: center; /* Centruoja visus tekstus ir kitus elementus */
+    padding: $spacing-medium 0; /* Prideda vidinį atstumą (pagal SCSS kintamąjį $spacing-medium) viršuje ir apačioje */
+    margin-top: auto; /* Naudojama flexbox išdėstyme, kad footer būtų stumiamas į apačią */
+}
+
+footer .container {
+    margin: 0 auto; /* Centruoja turinį horizontaliai */
+    padding: 0 $spacing-medium; /* Prideda pagalvę kraštuose, naudojant SCSS kintamąjį $spacing-medium */
+}
+
+footer p {
+    margin: 0; /* Pašalina numatytąjį margin aplink <p> elementą */
+}
+
+@media (min-width: 768px) {
+    footer {
+        padding: 30px 0; /* Padidina pagalvę viršuje ir apačioje didesniuose ekranuose (daugiau nei 768px) */
+    }
+}

@@ -1,0 +1,746 @@
+@charset "UTF-8";
+* {
+  margin: 0; /* Pašalina numatytus margin visiems elementams */
+  padding: 0; /* Pašalina numatytus padding visiems elementams */
+  box-sizing: border-box; /* Užtikrina, kad elementų pločio ir aukščio skaičiavimas būtų su įtrauktu padding ir border */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif; /* Nustato šriftą pagal kintamąjį $font-family */
+  font-size: 16px; /* Nustato pagrindinį šrifto dydį pagal kintamąjį $font-size-base */
+  line-height: 1.6; /* Nustato pagrindinį eilučių aukštį pagal kintamąjį $line-height-base */
+  color: #333; /* Nustato tekstų spalvą pagal kintamąjį $text-color */
+  background-color: #f9f9f9; /* Nustato fono spalvą pagal kintamąjį $background-color */
+  padding-top: 50px; /* Prideda papildomą atstumą viršuje, kad nebūtų per arti viršutinės navigacijos ar puslapio krašto */
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  width: 90%; /* Nustato konteinerio plotį 90% viso ekrano */
+  max-width: 1200px; /* Nustato maksimalų konteinerio plotį 1200px */
+  margin: 0 auto; /* Centruoja konteinerį horizontaliai */
+}
+
+a {
+  text-decoration: none; /* Pašalina po pabrauktą tekstą iš visų nuorodų */
+  color: inherit; /* Užtikrina, kad nuorodos spalva paveldės aplinkinių elementų spalvą */
+}
+
+section {
+  padding-top: 80px; /* Prideda 80px atstumą viršuje kiekvienai sekcijai */
+  margin-top: 80px; /* Prideda 80px atstumą viršuje, kad sekcija nebūtų per arti ankstesnio elemento */
+}
+
+/* Sklandus slinkimas, kai paspaudžiama nuoroda */
+html {
+  scroll-behavior: smooth; /* Užtikrina, kad puslapis slinks sklandžiai */
+  scroll-padding-top: 200px; /* Užtikrina, kad slinkimo pradžia bus 200px žemiau viršutinės dalies, kad nebūtų uždengta navigacija */
+}
+
+.btn, .reservation .contact-form .submit-btn {
+  display: inline-block; /* Nustato mygtukus kaip inline-block elementus, kad jie galėtų turėti width ir height */
+  font-weight: 500; /* Nustato mygtuko šrifto storį */
+  transition: all 0.3s; /* Užtikrina, kad visi pokyčiai (pvz., spalvos) vyks sklandžiai */
+  cursor: pointer; /* Keičia pelės žymeklį į rodyklę, kai rodomas ant mygtuko */
+  text-decoration: none; /* Pašalina nuorodos pabraukimą */
+}
+.btn__primary, .reservation .contact-form .submit-btn {
+  font-size: 16px; /* Naudojamas pagrindinis šrifto dydis */
+  line-height: 1.6; /* Naudojamas pagrindinis eilučių aukštis */
+  padding: 17px 48px; /* Nustato vidinius atstumus (padding) aplink mygtuką */
+  border: 1px solid #6b8e23; /* Nustato 1px storio ribą su $secondary-color spalva */
+  border-radius: 24px; /* Apvalina mygtuko kampus */
+  color: #6b8e23; /* Nustato tekstų spalvą su $secondary-color */
+  background-color: transparent; /* Nustato, kad fonas būtų skaidrus */
+}
+.btn__primary:hover, .reservation .contact-form .submit-btn:hover {
+  background-color: #6b8e23; /* Užpildo mygtuko foną $secondary-color spalva paspaudus */
+  color: #fff; /* Keičia tekstų spalvą į baltą paspaudus */
+}
+.btn__secondary, .back-to-collection-btn {
+  font-size: 16px; /* Naudojamas pagrindinis šrifto dydis */
+  line-height: 1.6; /* Naudojamas pagrindinis eilučių aukštis */
+  padding: 12px 30px; /* Nustato mažesnius vidinius atstumus nei pagrindinis mygtukas */
+  border: 2px solid #6b8e23; /* Nustato storesnę ribą nei pagrindinis mygtukas */
+  border-radius: 5px; /* Apvalina kampus */
+  color: #6b8e23; /* Nustato tekstų spalvą su $secondary-color */
+  background-color: #fff; /* Nustato baltą foną */
+}
+.btn__secondary:hover, .back-to-collection-btn:hover {
+  background-color: #6b8e23; /* Užpildo foną paspaudus */
+  color: #fff; /* Keičia tekstų spalvą į baltą */
+}
+.btn__secondary:active, .back-to-collection-btn:active {
+  background-color: #4c6519; /* Keičia fono spalvą, kai mygtukas yra paspaustas (tamsesnis atspalvis) */
+  border-color: #4c6519; /* Tamsina ir ribos spalvą */
+}
+
+.section-title, .reservation h2, .collection h2 {
+  font-size: 36px; /* Didelis antraštės šrifto dydis */
+  margin-bottom: 40px; /* Prideda didelį tarpą po antrašte */
+  color: #333; /* Nustato antraštės spalvą */
+  text-align: center; /* Centruoja antraštę */
+}
+
+.section {
+  padding: 60px 0; /* Prideda 60px pagalvę viršuje ir apačioje kiekvienai sekcijai */
+}
+.section--light {
+  background-color: #f9f9f9; /* Šviesios sekcijos fonas */
+}
+.section--dark {
+  background-color: #ececec; /* Tamsesnė sekcijos fonas */
+}
+
+.card, .reservation .contact-form, .collection .gallery-item {
+  background-color: #fff; /* Nustato kortelės foną baltą */
+  padding: 20px; /* Vidinis atstumas, nustatytas pagal kintamąjį */
+  border-radius: 10px; /* Apvalina kortelės kampus */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria lengvą šešėlį aplink kortelę */
+}
+
+.mobile-only {
+  display: none; /* Paslėpta pagal numatytuosius nustatymus */
+}
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block; /* Rodoma tik mažesniuose ekranuose */
+    /* Taikoma media užklausa mažesniems ekranams (iki 768px) */
+  }
+}
+
+.desktop-only {
+  display: block; /* Rodoma tik pagal numatytuosius nustatymus */
+}
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none; /* Paslėpta mažesniuose ekranuose */
+    /* Taikoma media užklausa mažesniems ekranams (iki 768px) */
+  }
+}
+
+.top-navigation {
+  background-color: #fff; /* Nustato balta foną navigacijai */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Prideda švelnų šešėlį navigacijai */
+  padding: 10px 0; /* Prideda vidinius atstumus viršuje ir apačioje po 10px */
+  position: fixed; /* Nustato navigaciją fiksuotą viršuje, kad ji lieka ekrane kai slenkama */
+  width: 100%; /* Užima visą puslapio plotį */
+  top: 0; /* Nustato, kad navigacija būtų viršuje */
+  z-index: 1000; /* Užtikrina, kad navigacija bus virš kitų elementų */
+  transition: top 0.3s ease; /* Užtikrina sklandų slinkimą, kai navigacija pasikeičia (pvz. slinkimo animacija) */
+}
+.top-navigation nav {
+  display: flex; /* Sukuria lankstų dėžutės modelį, kad elementai būtų išdėstyti eilėje */
+  justify-content: space-between; /* Išdėsto elementus su erdve tarp jų */
+  align-items: center; /* Vertikaliai centroja elementus */
+  padding: 0 20px; /* Nustato vidinius atstumus pagal nustatytą tarpą */
+}
+.top-navigation__logo img {
+  height: 40px; /* Nustato logotipo aukštį, kad jis būtų 40px */
+}
+.top-navigation__nav-links, .top-navigation__contact-us {
+  display: none; /* Paslepia navigacijos nuorodas ir kontaktų mygtuką pagal nutylėjimą */
+}
+.top-navigation__burger {
+  display: flex; /* Leidžia rodyti burger meniu */
+  flex-direction: column; /* Sukuria langelį su 3 eilutėmis burger ikonoje */
+  cursor: pointer; /* Keičia pelės žymeklį į rodyklę, kad būtų aišku, jog tai paspaudžiamas elementas */
+}
+.top-navigation__burger .line {
+  width: 25px; /* Nustato linijos plotį burger meniu */
+  height: 3px; /* Nustato linijos aukštį burger meniu */
+  background-color: #333; /* Nustato linijos spalvą pagal teksto spalvą */
+  margin: 4px 0; /* Atstumas tarp linijų */
+}
+@media (min-width: 1024px) {
+  .top-navigation nav {
+    padding-top: 40px; /* Prideda viršutinį atstumą pagal nustatytą dydį */
+    padding-bottom: 40px; /* Prideda apatinį atstumą pagal nustatytą dydį */
+  }
+  .top-navigation__nav-links, .top-navigation__contact-us {
+    display: flex; /* Rodo navigacijos nuorodas ir kontaktų mygtuką didesniuose ekranuose */
+  }
+  .top-navigation__nav-links {
+    gap: 40px; /* Prideda tarpus tarp nuorodų */
+    list-style: none; /* Pašalina sąrašo taškelius */
+  }
+  .top-navigation__nav-links li a {
+    font-size: 16px; /* Nustato nuorodų šrifto dydį */
+    line-height: 1.6; /* Nustato eilutės aukštį */
+    color: #333; /* Nustato nuorodų spalvą */
+    transition: all 0.3s; /* Prideda sklandų perėjimą prie nuorodų pasikeitimų */
+    padding-bottom: 5px; /* Prideda atstumą po nuorodomis */
+    border-bottom: 2px solid transparent; /* Pažymi nuorodas su permatomu apatine linija */
+  }
+  .top-navigation__nav-links li a:hover {
+    color: #ff6f61; /* Pasikeičia nuorodos spalva, kai pelės žymeklis užveda ant nuorodos */
+    border-bottom-color: #ff6f61; /* Spalva apatinės linijos, kai nuoroda yra paryškinta */
+  }
+  .top-navigation__contact-us {
+    font-size: 16px !important; /* Užtikrina, kad fontas bus tinkamo dydžio */
+    line-height: 1.6 !important; /* Užtikrina, kad eilutės aukštis bus tinkamas */
+    padding: 17px 48px !important; /* Nustato vidinius atstumus su papildomais privalomais dydžiais */
+    border: 1px solid #6b8e23 !important; /* Nustato apvado spalvą */
+    border-radius: 24px !important; /* Apvalina kampus */
+    color: #6b8e23 !important; /* Nustato teksto spalvą */
+    font-weight: 500 !important; /* Nustato šrifto svorį */
+    transition: all 0.3s !important; /* Užtikrina sklandų perėjimą */
+    cursor: pointer !important; /* Nustato pelės žymeklį, kad elementas būtų paspaudžiamas */
+    text-decoration: none !important; /* Pašalina požiūrį po tekstu */
+    background-color: transparent !important; /* Nustato foną permatomą */
+  }
+  .top-navigation__contact-us:hover {
+    background-color: #6b8e23 !important; /* Pasikeičia fonas užvedus pelę */
+    color: #fff !important; /* Tekstas pasikeičia į baltą spalvą */
+  }
+  .top-navigation__burger {
+    display: none; /* Paslepia burger meniu didesniuose ekranuose */
+  }
+}
+@media (max-width: 1023px) {
+  .top-navigation__nav-links {
+    display: none; /* Paslepia navigacijos nuorodas mažesniuose ekranuose */
+    flex-direction: column; /* Sukuria sąrašą stulpelyje */
+    align-items: center !important; /* Centruoja elementus viduje */
+    justify-content: center !important; /* Vertikaliai centruoja elementus */
+    background-color: #fff; /* Fonas baltas */
+    position: absolute; /* Pozicionuoja meniu absoliučiai */
+    top: 80px; /* Nustato atstumą nuo viršaus */
+    right: 20px; /* Nustato atstumą dešinėje pusėje */
+    left: auto; /* Išjungia kairįjį pozicionavimą */
+    transform: none; /* Pašalina transformaciją */
+    width: 200px; /* Nustato meniu plotį */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Prideda šešėlį */
+    border-radius: 10px; /* Apvalina kampus */
+    padding: 10px; /* Vidiniai atstumai */
+    z-index: 1000; /* Užtikrina, kad meniu bus virš kitų elementų */
+    text-align: center !important; /* Centruoja tekstą */
+    margin: 0 !important; /* Pašalina atstumus aplink meniu */
+  }
+  .top-navigation__nav-links.active {
+    display: flex; /* Rodoma, kai meniu aktyvuojama */
+  }
+  .top-navigation__nav-links li {
+    margin: 10px 0; /* Prideda atstumą tarp meniu elementų */
+    list-style: none !important; /* Pašalina taškus */
+    width: 100%; /* Užtikrina, kad elementai užims visą plotį */
+    text-align: center !important; /* Centruoja tekstą */
+    padding: 0 !important; /* Pašalina atstumus aplink */
+  }
+  .top-navigation__nav-links li a {
+    display: block; /* Užtikrina, kad nuorodos užims visą elementą */
+    padding: 8px 0; /* Prideda vertikalius atstumus nuorodoms */
+    color: #333; /* Nustato nuorodų spalvą */
+    font-weight: 500; /* Nustato šrifto svorį */
+    transition: all 0.3s; /* Prideda sklandų perėjimą */
+    text-align: center !important; /* Centruoja nuorodų tekstą */
+  }
+  .top-navigation__nav-links li a:hover {
+    color: #ff6f61; /* Pakeičia spalvą užvedus pelę */
+  }
+  .top-navigation__contact-us {
+    display: block; /* Rodoma mažesniuose ekranuose */
+    margin: 20px auto; /* Centruoja kontaktų mygtuką */
+    width: -moz-fit-content;
+    width: fit-content; /* Uždeda plotį pagal turinį */
+    font-size: 14px !important; /* Nustato šrifto dydį */
+    padding: 10px 20px !important; /* Vidiniai atstumai */
+    border: 1px solid #6b8e23 !important; /* Nustato apvado spalvą */
+    border-radius: 24px !important; /* Apvalina kampus */
+    color: #6b8e23 !important; /* Nustato spalvą */
+    font-weight: 500 !important; /* Nustato šrifto svorį */
+    transition: all 0.3s !important; /* Sklandūs perėjimai */
+    cursor: pointer !important; /* Pelės žymeklis rodys, kad tai paspaudžiamas elementas */
+    background-color: transparent !important; /* Fonas permatomas */
+    text-decoration: none !important; /* Pašalina nuorodų pabraukimą */
+  }
+  .top-navigation__contact-us:hover {
+    background-color: #6b8e23 !important; /* Pakeičia foną užvedus pelę */
+    color: #fff !important; /* Pakeičia tekstą į baltą */
+  }
+  .top-navigation__burger {
+    display: flex; /* Rodo burger meniu mažesniuose ekranuose */
+  }
+}
+
+.hero-section {
+  position: relative; /* Nustato hero sekcijos poziciją kaip reliatyvią */
+  min-height: 70vh; /* Užtikrina, kad sekcija užims bent 70% ekrano aukščio */
+  overflow: hidden; /* Paslepia viską, kas išeina už sekcijos ribų */
+  border: 4px solid rgba(255, 255, 255, 0.5); /* Skaidrus apvadas su 50% skaidrumu */
+  border-radius: 20px; /* Apvalūs kampai */
+  box-sizing: border-box; /* Užtikrina, kad apvadas neįtakos turinio dydžio */
+}
+.hero-section__content {
+  display: flex; /* Naudojame flexbox, kad galėtume lengvai išdėstyti elementus */
+  flex-direction: column; /* Elementai bus išdėstyti vertikaliai */
+  align-items: center; /* Elementai bus išdėstyti centre pagal horizontalę ašį */
+  justify-content: center; /* Elementai bus išdėstyti centre pagal vertikalią ašį */
+  text-align: center; /* Tekstas bus išlygintas centras */
+  gap: 20px; /* Nustatome tarpą tarp elementų */
+  position: relative; /* Nustatome poziciją, kad galėtume valdyti z-index */
+  z-index: 1; /* Užtikrina, kad šis turinys bus virš hero sekcijos vaizdo */
+  padding: 20px; /* Prideda vidinį atstumą aplink turinį */
+  background-color: rgba(255, 255, 255, 0.8); /* Pusiau skaidrus baltas fonas su 80% skaidrumu */
+  border-radius: 20px; /* Suapvalina kampus */
+  margin: 20px; /* Prideda atstumą išorėje */
+}
+.hero-section__text {
+  display: flex; /* Naudojame flexbox išdėstymą */
+  flex-direction: column; /* Tekstas bus išdėstytas vertikaliai */
+  align-items: center; /* Elementai bus išdėstytai centre */
+  gap: 20px; /* Nustatome tarpą tarp elementų */
+}
+.hero-section__text h1 {
+  max-width: 20ch; /* Ribojame antraštės ilgį iki 20 simbolių pločio */
+  font-size: 36px; /* Nustatome didelį šriftą antraštei */
+  color: #333; /* Pritaikome tekstui pasirinktos spalvos kintamąjį */
+}
+.hero-section__text p {
+  max-width: 58ch; /* Ribojame teksto ilgį iki 58 simbolių pločio */
+  font-size: 18px; /* Vidutinio dydžio šriftas tekstui */
+  color: #333; /* Pritaikome tekstui pasirinktos spalvos kintamąjį */
+}
+.hero-section__image {
+  position: absolute; /* Nustatome vaizdo poziciją kaip absoliučią */
+  top: 0; /* Vaizdas bus išdėstytas pačioje viršuje */
+  left: 0; /* Vaizdas bus išdėstytas pačiame kairiajame kampe */
+  width: 100%; /* Vaizdas užims visą hero sekcijos plotį */
+  height: 100%; /* Vaizdas užims visą hero sekcijos aukštį */
+  z-index: 0; /* Užtikrina, kad vaizdas bus po visais kitais elementais */
+}
+.hero-section__image img {
+  width: 100%; /* Vaizdas užims visą plotį */
+  height: 100%; /* Vaizdas užims visą aukštį */
+  -o-object-fit: cover;
+     object-fit: cover; /* Užtikrina, kad vaizdas užpildys visą plotą ir išlaikys proporcijas */
+  -o-object-position: center;
+     object-position: center; /* Užtikrina, kad vaizdas bus sucentravęs */
+}
+.hero-section.main-page {
+  min-height: 50vh; /* Standartinis aukštis pagrindiniam puslapiui */
+}
+.hero-section.collection-page {
+  min-height: 30vh; /* Mažesnis aukštis kolekcijos puslapyje */
+}
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 50vh; /* Hero sekcija bus 50% ekrano aukščio mobiliuose įrenginiuose */
+    /* Taikoma media užklausa mažesniems ekranams (iki 768px) */
+  }
+  .hero-section__content {
+    padding: 10px; /* Mažesnis vidinis atstumas mobiliuose įrenginiuose */
+    margin: 10px; /* Mažesnis išorinis atstumas mobiliuose įrenginiuose */
+  }
+  .hero-section__text h1 {
+    font-size: 28px; /* Mažesnis šriftas antraštei mobiliuose įrenginiuose */
+  }
+  .hero-section__text p {
+    font-size: 16px; /* Mažesnis šriftas tekstui mobiliuose įrenginiuose */
+  }
+  .hero-section.main-page {
+    min-height: 30vh; /* Mažesnis aukštis pagrindiniam puslapiui mobiliuose įrenginiuose */
+  }
+  .hero-section.collection-page {
+    min-height: 30vh; /* Dar mažesnis aukštis kolekcijos puslapiui mobiliuose įrenginiuose */
+  }
+}
+
+.collection {
+  padding: 40px 0; /* Prideda 40px atstumą viršuje ir apačioje aplink visą kolekciją */
+  text-align: center; /* Centruoja visus elementus, esančius .collection konteineryje */
+}
+.collection h2 {
+  /* Išplečia kitoje vietoje aprašytą klasę .section-title, pridedant tos klasės stilius */
+}
+.collection .gallery {
+  display: flex; /* Naudojamas lanksčios dėžės modelis, kad galėtumėte valdyti išdėstymą */
+  flex-wrap: wrap; /* Leidžia elementams pertraukti eilutes, kai jie nebetelpa į vieną */
+  gap: 20px; /* Tarpas tarp galerijos elementų (pagal SCSS kintamąjį $spacing-medium) */
+  justify-content: center; /* Centruoja visus galerijos elementus horizontaliai */
+  margin-bottom: 40px; /* Prideda didelį tarpą apačioje (pagal kintamąjį $spacing-large) */
+}
+.collection .gallery-item {
+  /* Išplečia stilius iš .card klasės */
+  width: calc(33.333% - 40px); /* Nustato kiekvieno elementų pločio trečdalį su atstumu tarp elementų */
+  text-align: center; /* Centruoja tekstą galerijos elemento viduje */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Prideda sklandų perėjimą, kai elementas keičia savo poziciją ir šešėlį */
+  overflow: hidden; /* Slėpia viską, kas išsikiša už elementų ribų */
+}
+.collection .gallery-item:hover {
+  transform: translateY(-5px); /* Perkelia elementą 5px aukštyn, kai jis užvedamas pelės */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sukuria šešėlį aplink elementą, kai jis užvedamas pelės */
+}
+.collection .gallery-item img {
+  max-width: 100%; /* Nuotrauka užims visą tėvinio elemento plotį */
+  border-radius: 10px 10px 0 0; /* Apvalina tik viršutinius kampus */
+  height: 300px; /* Nustato nuotraukos aukštį 300px */
+  -o-object-fit: cover;
+     object-fit: cover; /* Užtikrina, kad nuotrauka užims visą erdvę, išlaikydama savo santykį */
+  transition: transform 0.3s ease; /* Sklandus perėjimas, kai nuotrauka keičia savo dydį */
+}
+.collection .gallery-item img:hover {
+  transform: scale(1.05); /* Nuotrauka padidėja, kai ji užvedama pelės */
+}
+.collection .gallery-item h3 {
+  font-size: 24px; /* Antraštės šrifto dydis 24px */
+  margin: 15px 0 10px; /* Prideda tarpus aplink antraštę */
+  color: #333; /* Antraštės spalva, kuri yra nustatyta SCSS kintamajame $text-color */
+}
+.collection .gallery-item p {
+  font-size: 16px; /* Teksto šrifto dydis 16px */
+  color: #666; /* Teksto spalva tamsiai pilka (#666) */
+  margin-bottom: 10px; /* Prideda mažą tarpą apačioje (pagal $spacing-small kintamąjį) */
+}
+.collection .gallery-item a {
+  display: block; /* Paverskite nuorodą blokiniu elementu */
+  text-decoration: none; /* Pašalina nuorodos pabraukimą */
+  color: inherit; /* Paveldi spalvą iš tėvinio elemento */
+}
+.collection .btn__primary, .collection .reservation .contact-form .submit-btn, .reservation .contact-form .collection .submit-btn {
+  margin-top: 40px; /* Prideda didelį tarpą viršuje */
+  display: inline-block; /* Nustato mygtuką kaip inline-block, kad galėtų būti šalia kitų elementų */
+}
+@media (max-width: 768px) {
+  .collection {
+    /* Taikoma media užklausa mažesniems ekranams (iki 768px) */
+  }
+  .collection .gallery-item {
+    width: calc(50% - 20px); /* Nustato elementų plotį 50% su atstumu mažesniuose ekranuose */
+  }
+  .collection .gallery-item img {
+    height: 200px; /* Sumažina nuotraukos aukštį iki 200px mažesniuose ekranuose */
+  }
+  .collection .gallery-item h3 {
+    font-size: 20px; /* Sumažina antraštės šrifto dydį iki 20px mažesniuose ekranuose */
+  }
+}
+@media (max-width: 480px) {
+  .collection .gallery-item {
+    width: 100%; /* Nustato, kad galerijos elementai užims visą plotį mažesniuose ekranuose */
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Adjust the gap between filter groups as needed */
+  margin-bottom: 20px; /* Add some space below the filters */
+  flex-wrap: wrap; /* Allow filters to wrap to the next line if needed */
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 120px; /* Adjust the minimum width as needed */
+  max-width: 200px; /* Set a maximum width to make them narrower */
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.contact {
+  padding: 60px 0; /* Prideda 60px atstumą viršuje ir apačioje aplink kontaktų sekciją */
+  text-align: center; /* Centruoja visus elementus, esančius .contact konteineryje */
+  background-color: #f9f9f9; /* Nustato foną naudojant SCSS kintamąjį $background-color */
+}
+.contact h2 {
+  font-size: 36px; /* Antraštės šrifto dydis 36px */
+  margin-bottom: 40px; /* Prideda didelį tarpą po antrašte */
+  color: #333; /* Antraštės spalva nustatoma naudojant SCSS kintamąjį $text-color */
+}
+.contact .contact-info {
+  display: grid; /* Naudojamas grid išdėstymas (stulpelių ir eilučių modelis) */
+  place-items: center; /* Centruoja visus elementus tiek horizontaliai, tiek vertikaliai */
+  gap: 40px; /* Tarpas tarp elementų nustatomas naudojant SCSS kintamąjį $spacing-large */
+  max-width: 800px; /* Nustato maksimalų plotį 800px */
+  margin: 0 auto; /* Centruoja kontaktų informaciją horizontaliai */
+  padding: 40px; /* Prideda didelį atstumą aplink kontaktų informaciją */
+  background-color: #fff; /* Baltas fonas kontaktų informacijai */
+  border-radius: 10px; /* Apvalina kampus 10px */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria švelnų šešėlį aplink kontaktų informaciją */
+}
+@media (min-width: 768px) {
+  .contact .contact-info {
+    grid-template-columns: 1fr 1fr 1fr; /* Tris vienodus stulpelius kompiuterio ekranuose */
+    justify-items: center; /* Centruoja kiekvieną elementą stulpelyje */
+    padding: 40px; /* Didelis atstumas aplink kontaktų informaciją */
+  }
+}
+@media (max-width: 768px) {
+  .contact .contact-info {
+    display: grid; /* Užtikrina, kad grid išdėstymas bus naudojamas ir mobiliajame režime */
+    place-items: center; /* Centruoja elementus tiek horizontalioje, tiek vertikalioje kryptyje */
+    padding: 20px 0; /* Prideda vidutinį atstumą viršuje ir apačioje, o šonuose nėra pagalvės */
+  }
+}
+.contact .contact-info__item {
+  display: flex; /* Naudojamas flex išdėstymas kiekvienam kontaktų elementui */
+  align-items: center; /* Vertikaliai centravimas elementų */
+  justify-content: center; /* Horizontaliai centravimas elementų */
+  gap: 10px; /* Tarpas tarp ikonų ir teksto naudojant SCSS kintamąjį $spacing-small */
+}
+.contact .contact-info__item i {
+  font-size: 24px; /* Ikonos dydis nustatomas 24px */
+  color: #6b8e23; /* Ikonos spalva nustatoma naudojant SCSS kintamąjį $secondary-color */
+}
+.contact .contact-info__item p {
+  margin: 0; /* Pašalina numatytą tarpą aplink <p> elementą */
+  font-size: 16px; /* Teksto šrifto dydis nustatomas 16px */
+}
+
+footer {
+  width: 100%; /* Užima visą ekrano plotį */
+  background-color: #6b8e23; /* Nustato fono spalvą naudojant SCSS kintamąjį $secondary-color */
+  color: #fff; /* Nustato tekstą baltos spalvos */
+  text-align: center; /* Centruoja visus tekstus ir kitus elementus */
+  padding: 20px 0; /* Prideda vidinį atstumą (pagal SCSS kintamąjį $spacing-medium) viršuje ir apačioje */
+  margin-top: auto; /* Naudojama flexbox išdėstyme, kad footer būtų stumiamas į apačią */
+}
+
+footer .container {
+  margin: 0 auto; /* Centruoja turinį horizontaliai */
+  padding: 0 20px; /* Prideda pagalvę kraštuose, naudojant SCSS kintamąjį $spacing-medium */
+}
+
+footer p {
+  margin: 0; /* Pašalina numatytąjį margin aplink <p> elementą */
+}
+
+@media (min-width: 768px) {
+  footer {
+    padding: 30px 0; /* Padidina pagalvę viršuje ir apačioje didesniuose ekranuose (daugiau nei 768px) */
+  }
+}
+.about {
+  padding: 60px 0; /* Prideda 60px viršuje ir apačioje atstumą aplink sekciją */
+  background-color: #f9f9f9; /* Nustato sekcijos foną */
+}
+
+.about h2 {
+  font-size: 36px; /* Nustato antraštės šrifto dydį 36px */
+  margin-bottom: 40px; /* Prideda 40px tarpus po antrašte */
+  color: #333; /* Nustato antraštės spalvą tamsiai pilką (#333) */
+  text-align: center; /* Centre antraštę */
+}
+
+.about .about-content {
+  display: flex; /* Nustato lanksčią dėžę, kad jos elementai būtų išdėstyti pagal lankstų modelį */
+  flex-direction: column; /* Elementai bus išdėstyti vertikaliai */
+  align-items: flex-start; /* Lankstus konteineris išdėsto elementus kairėje */
+  gap: 20px; /* Tarpai tarp elementų bus 20px */
+  max-width: 1000px; /* Maksimalus turinio plotis */
+  margin: 0 auto; /* Centruoja elementą pagal horizontalę (jei jis mažesnis už ekraną) */
+  padding: 0 20px; /* Prideda 20px tarpus iš kairės ir dešinės pusės */
+}
+
+.about .about-content p {
+  font-size: 18px; /* Nustato teksto dydį 18px */
+  line-height: 1.6; /* Nustato eilutės aukštį (atstumą tarp eilučių) 1.6 karto didesnį už šrifto dydį */
+  color: #666; /* Nustato teksto spalvą pilką (#666) */
+  width: 100%; /* Tekstas užims visą turimą plotą */
+  text-align: center; /* Nustato, kad tekstas būtų centre */
+}
+
+.about .about-content img {
+  border-radius: 10px; /* Kampai bus suapvalinti 10px */
+  max-width: 100%; /* Nuotrauka užims visą tėvinio elemento plotį */
+  height: auto; /* Aukštis bus proporcingas pločiui */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria švelnų šešėlį aplink nuotrauką */
+}
+
+@media (max-width: 768px) {
+  .about .about-content p {
+    font-size: 16px; /* Mažina šrifto dydį iki 16px mažesniuose ekranuose (pvz., mobiliuose) */
+  }
+}
+/* Grįžti į kolekciją mygtukas */
+.back-to-collection {
+  text-align: center; /* Centruoja mygtuką */
+  margin-top: 30px; /* Atstumas nuo kitų elementų */
+  margin-bottom: 50px; /* Atstumas nuo footer */
+}
+
+.back-to-collection-btn {
+  /* Išplečia stilius iš .btn__secondary klasės */
+  font-size: 18px; /* Nustato mygtuko šrifto dydį 18px */
+}
+@media (max-width: 768px) {
+  .back-to-collection-btn {
+    font-size: 16px; /* Mažesnis šrifto dydis mobiliajame */
+    padding: 10px 20px; /* Mažesnis atstumas mygtuko kraštuose mobiliajame */
+    /* Taikoma media užklausa mažesniems ekranams (iki 768px) */
+  }
+}
+
+/* Suknelės informacija */
+.dress-details {
+  padding: 40px 0; /* Prideda 40px pagalvę viršuje ir apačioje */
+  background-color: #fff; /* Nustato baltą foną */
+  text-align: center; /* Centruoja tekstą */
+}
+
+.dress-details h1 {
+  font-size: 36px; /* Pagrindinės antraštės šrifto dydis 36px */
+  color: #333; /* Tamsiai pilka spalva */
+  margin-bottom: 20px; /* Prideda 20px tarpą po antrašte */
+}
+
+.dress-details p {
+  font-size: 18px; /* Teksto šrifto dydis 18px */
+  color: #666; /* Šviesiai pilka spalva */
+  line-height: 1.6; /* Padidina tarpą tarp eilučių */
+  margin-bottom: 20px; /* Prideda 20px tarpą apačioje */
+  max-width: 800px; /* Nustato maksimalią teksto plotį 800px */
+  margin: 0 auto; /* Centruoja tekstą */
+}
+
+.dress-details img {
+  max-width: 60%; /* Nuotrauka užims visą tėvinio elemento plotį */
+  height: auto; /* Išlaiko nuotraukos proporcijas */
+  border-radius: 10px; /* Apvalina nuotraukos kampus */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria šešėlį aplink nuotrauką */
+}
+
+.main-image {
+  max-width: 300px; /* Nustato maksimalią pagrindinės nuotraukos plotį */
+  height: auto; /* Išlaiko nuotraukos proporcijas */
+  margin: 0 auto; /* Centruoja nuotrauką */
+  cursor: pointer; /* Rodyklė pasikeičia į ranką */
+}
+
+.additional-images {
+  display: flex;
+  justify-content: center; /* Centruoja papildomas nuotraukas */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.additional-image {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 2px;
+}
+
+.additional-image:hover {
+  border-color: #000;
+}
+
+/* Magnify effect */
+.magnify {
+  transition: transform 0.2s, cursor 0.2s; /* Animation */
+}
+
+.magnify.magnified {
+  transform: scale(2); /* Maksimalus didinimo dydis */
+  cursor: zoom-out; /* Change cursor to zoom-out */
+}
+
+/* Media query - mobilieji įrenginiai */
+@media (max-width: 768px) {
+  .dress-details h1 {
+    font-size: 28px; /* Mažesnis antraštės šrifto dydis mobiliajame */
+  }
+  .dress-details p {
+    font-size: 16px; /* Mažesnis teksto šrifto dydis mobiliajame */
+  }
+  .back-to-collection-btn {
+    font-size: 16px; /* Mažesnis mygtuko šrifto dydis mobiliajame */
+    padding: 10px 20px; /* Mažesnis mygtuko paddingas mobiliajame */
+  }
+  header a {
+    font-size: 16px; /* Mažesnis šrifto dydis nuorodoms mobiliajame */
+  }
+}
+.reservation {
+  padding: 60px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+.reservation h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.reservation .contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 40px;
+}
+.reservation .contact-form .form-group {
+  margin-bottom: 20px;
+}
+.reservation .contact-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+.reservation .contact-form .form-group input,
+.reservation .contact-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  transition: border-color 0.3s;
+}
+.reservation .contact-form .form-group input:focus,
+.reservation .contact-form .form-group textarea:focus {
+  border-color: #6b8e23;
+  outline: none;
+}
+.reservation .contact-form .form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+.reservation .contact-form .submit-btn {
+  font-size: 18px;
+  padding: 15px 48px;
+}
+.reservation #message-container {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+.reservation #message-container.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  display: block;
+}
+.reservation #message-container.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  display: block;
+}
+@media (max-width: 768px) {
+  .reservation {
+    padding: 20px 0;
+    /* Taikoma media užklausa mažesniems ekranams (iki 768px) */
+  }
+  .reservation .contact-form {
+    padding: 20px;
+  }
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,152 @@
+* {
+    margin: 0; /* Pašalina numatytus margin visiems elementams */
+    padding: 0; /* Pašalina numatytus padding visiems elementams */
+    box-sizing: border-box; /* Užtikrina, kad elementų pločio ir aukščio skaičiavimas būtų su įtrauktu padding ir border */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: $font-family; /* Nustato šriftą pagal kintamąjį $font-family */
+    font-size: $font-size-base; /* Nustato pagrindinį šrifto dydį pagal kintamąjį $font-size-base */
+    line-height: $line-height-base; /* Nustato pagrindinį eilučių aukštį pagal kintamąjį $line-height-base */
+    color: $text-color; /* Nustato tekstų spalvą pagal kintamąjį $text-color */
+    background-color: $background-color; /* Nustato fono spalvą pagal kintamąjį $background-color */
+    padding-top: 50px; /* Prideda papildomą atstumą viršuje, kad nebūtų per arti viršutinės navigacijos ar puslapio krašto */
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    width: 90%; /* Nustato konteinerio plotį 90% viso ekrano */
+    max-width: 1200px; /* Nustato maksimalų konteinerio plotį 1200px */
+    margin: 0 auto; /* Centruoja konteinerį horizontaliai */
+}
+
+a {
+    text-decoration: none; /* Pašalina po pabrauktą tekstą iš visų nuorodų */
+    color: inherit; /* Užtikrina, kad nuorodos spalva paveldės aplinkinių elementų spalvą */
+}
+
+section {
+    padding-top: 80px; /* Prideda 80px atstumą viršuje kiekvienai sekcijai */
+    margin-top: 80px; /* Prideda 80px atstumą viršuje, kad sekcija nebūtų per arti ankstesnio elemento */
+}
+
+/* Sklandus slinkimas, kai paspaudžiama nuoroda */
+html {
+    scroll-behavior: smooth; /* Užtikrina, kad puslapis slinks sklandžiai */
+    scroll-padding-top: 200px; /* Užtikrina, kad slinkimo pradžia bus 200px žemiau viršutinės dalies, kad nebūtų uždengta navigacija */
+}
+
+// Bendri mygtukų stiliai
+.btn {
+    display: inline-block; /* Nustato mygtukus kaip inline-block elementus, kad jie galėtų turėti width ir height */
+    font-weight: 500; /* Nustato mygtuko šrifto storį */
+    transition: all 0.3s; /* Užtikrina, kad visi pokyčiai (pvz., spalvos) vyks sklandžiai */
+    cursor: pointer; /* Keičia pelės žymeklį į rodyklę, kai rodomas ant mygtuko */
+    text-decoration: none; /* Pašalina nuorodos pabraukimą */
+    
+    &__primary {
+        font-size: $font-size-base; /* Naudojamas pagrindinis šrifto dydis */
+        line-height: $line-height-base; /* Naudojamas pagrindinis eilučių aukštis */
+        padding: 17px 48px; /* Nustato vidinius atstumus (padding) aplink mygtuką */
+        border: 1px solid $secondary-color; /* Nustato 1px storio ribą su $secondary-color spalva */
+        border-radius: 24px; /* Apvalina mygtuko kampus */
+        color: $secondary-color; /* Nustato tekstų spalvą su $secondary-color */
+        background-color: transparent; /* Nustato, kad fonas būtų skaidrus */
+        
+        &:hover {
+            background-color: $secondary-color; /* Užpildo mygtuko foną $secondary-color spalva paspaudus */
+            color: #fff; /* Keičia tekstų spalvą į baltą paspaudus */
+        }
+    }
+    
+    &__secondary {
+        font-size: $font-size-base; /* Naudojamas pagrindinis šrifto dydis */
+        line-height: $line-height-base; /* Naudojamas pagrindinis eilučių aukštis */
+        padding: 12px 30px; /* Nustato mažesnius vidinius atstumus nei pagrindinis mygtukas */
+        border: 2px solid $secondary-color; /* Nustato storesnę ribą nei pagrindinis mygtukas */
+        border-radius: 5px; /* Apvalina kampus */
+        color: $secondary-color; /* Nustato tekstų spalvą su $secondary-color */
+        background-color: #fff; /* Nustato baltą foną */
+        
+        &:hover {
+            background-color: $secondary-color; /* Užpildo foną paspaudus */
+            color: #fff; /* Keičia tekstų spalvą į baltą */
+        }
+        
+        &:active {
+            background-color: darken($secondary-color, 10%); /* Keičia fono spalvą, kai mygtukas yra paspaustas (tamsesnis atspalvis) */
+            border-color: darken($secondary-color, 10%); /* Tamsina ir ribos spalvą */
+        }
+    }
+}
+
+// Sekcijų antraščių stiliai
+.section-title {
+    font-size: 36px; /* Didelis antraštės šrifto dydis */
+    margin-bottom: $spacing-large; /* Prideda didelį tarpą po antrašte */
+    color: $text-color; /* Nustato antraštės spalvą */
+    text-align: center; /* Centruoja antraštę */
+}
+
+// Sekcijų konteinerių stiliai
+.section {
+    padding: 60px 0; /* Prideda 60px pagalvę viršuje ir apačioje kiekvienai sekcijai */
+    
+    &--light {
+        background-color: $background-color; /* Šviesios sekcijos fonas */
+    }
+    
+    &--dark {
+        background-color: darken($background-color, 5%); /* Tamsesnė sekcijos fonas */
+    }
+}
+
+// Kortelių stiliai
+.card {
+    background-color: #fff; /* Nustato kortelės foną baltą */
+    padding: $spacing-medium; /* Vidinis atstumas, nustatytas pagal kintamąjį */
+    border-radius: 10px; /* Apvalina kortelės kampus */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria lengvą šešėlį aplink kortelę */
+}
+
+// Media užklausų mixins
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content; /* Taikoma media užklausa mažesniems ekranams (iki 768px) */
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 769px) and (max-width: 1023px) {
+        @content; /* Taikoma media užklausa planšetiniais įrenginiais (769px-1023px) */
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1024px) {
+        @content; /* Taikoma media užklausa dideliems ekranams (1024px+) */
+    }
+}
+
+// Mobilieji elementai
+.mobile-only {
+    display: none; /* Paslėpta pagal numatytuosius nustatymus */
+    
+    @include mobile {
+        display: block; /* Rodoma tik mažesniuose ekranuose */
+    }
+}
+
+.desktop-only {
+    display: block; /* Rodoma tik pagal numatytuosius nustatymus */
+    
+    @include mobile {
+        display: none; /* Paslėpta mažesniuose ekranuose */
+    }
+}

@@ -1,0 +1,52 @@
+.contact {
+    padding: 60px 0; /* Prideda 60px atstumą viršuje ir apačioje aplink kontaktų sekciją */
+    text-align: center; /* Centruoja visus elementus, esančius .contact konteineryje */
+    background-color: $background-color; /* Nustato foną naudojant SCSS kintamąjį $background-color */
+    
+    h2 {
+        font-size: 36px; /* Antraštės šrifto dydis 36px */
+        margin-bottom: $spacing-large; /* Prideda didelį tarpą po antrašte */
+        color: $text-color; /* Antraštės spalva nustatoma naudojant SCSS kintamąjį $text-color */
+    }
+
+    .contact-info {
+        display: grid; /* Naudojamas grid išdėstymas (stulpelių ir eilučių modelis) */
+        place-items: center; /* Centruoja visus elementus tiek horizontaliai, tiek vertikaliai */
+        gap: $spacing-large; /* Tarpas tarp elementų nustatomas naudojant SCSS kintamąjį $spacing-large */
+        max-width: 800px; /* Nustato maksimalų plotį 800px */
+        margin: 0 auto; /* Centruoja kontaktų informaciją horizontaliai */
+        padding: $spacing-large; /* Prideda didelį atstumą aplink kontaktų informaciją */
+        background-color: #fff; /* Baltas fonas kontaktų informacijai */
+        border-radius: 10px; /* Apvalina kampus 10px */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sukuria švelnų šešėlį aplink kontaktų informaciją */
+        
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr 1fr; /* Tris vienodus stulpelius kompiuterio ekranuose */
+            justify-items: center; /* Centruoja kiekvieną elementą stulpelyje */
+            padding: $spacing-large; /* Didelis atstumas aplink kontaktų informaciją */
+        }
+        
+        @media (max-width: 768px) {
+            display: grid; /* Užtikrina, kad grid išdėstymas bus naudojamas ir mobiliajame režime */
+            place-items: center; /* Centruoja elementus tiek horizontalioje, tiek vertikalioje kryptyje */
+            padding: $spacing-medium 0; /* Prideda vidutinį atstumą viršuje ir apačioje, o šonuose nėra pagalvės */
+        }
+
+        &__item {
+            display: flex; /* Naudojamas flex išdėstymas kiekvienam kontaktų elementui */
+            align-items: center; /* Vertikaliai centravimas elementų */
+            justify-content: center; /* Horizontaliai centravimas elementų */
+            gap: $spacing-small; /* Tarpas tarp ikonų ir teksto naudojant SCSS kintamąjį $spacing-small */
+            
+            i {
+                font-size: 24px; /* Ikonos dydis nustatomas 24px */
+                color: $secondary-color; /* Ikonos spalva nustatoma naudojant SCSS kintamąjį $secondary-color */
+            }
+            
+            p {
+                margin: 0; /* Pašalina numatytą tarpą aplink <p> elementą */
+                font-size: 16px; /* Teksto šrifto dydis nustatomas 16px */
+            }
+        }
+    }
+}

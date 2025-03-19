@@ -1,0 +1,96 @@
+.hero-section {
+    position: relative;          /* Nustato hero sekcijos poziciją kaip reliatyvią */
+    min-height: 70vh;             /* Užtikrina, kad sekcija užims bent 70% ekrano aukščio */
+    overflow: hidden;            /* Paslepia viską, kas išeina už sekcijos ribų */
+    border: 4px solid rgba(255, 255, 255, 0.5); /* Skaidrus apvadas su 50% skaidrumu */
+    border-radius: 20px;         /* Apvalūs kampai */
+    box-sizing: border-box;      /* Užtikrina, kad apvadas neįtakos turinio dydžio */
+    
+    // Hero sekcijos vidinio turinio stiliai
+    &__content {
+        display: flex;                    /* Naudojame flexbox, kad galėtume lengvai išdėstyti elementus */
+        flex-direction: column;           /* Elementai bus išdėstyti vertikaliai */
+        align-items: center;              /* Elementai bus išdėstyti centre pagal horizontalę ašį */
+        justify-content: center;          /* Elementai bus išdėstyti centre pagal vertikalią ašį */
+        text-align: center;               /* Tekstas bus išlygintas centras */
+        gap: $spacing-medium;             /* Nustatome tarpą tarp elementų */
+        position: relative;               /* Nustatome poziciją, kad galėtume valdyti z-index */
+        z-index: 1;                       /* Užtikrina, kad šis turinys bus virš hero sekcijos vaizdo */
+        padding: $spacing-medium;         /* Prideda vidinį atstumą aplink turinį */
+        background-color: rgba(255, 255, 255, 0.8); /* Pusiau skaidrus baltas fonas su 80% skaidrumu */
+        border-radius: 20px;              /* Suapvalina kampus */
+        margin: $spacing-medium;          /* Prideda atstumą išorėje */
+    }
+
+    // Hero sekcijos teksto stiliai
+    &__text {
+        display: flex;                    /* Naudojame flexbox išdėstymą */
+        flex-direction: column;           /* Tekstas bus išdėstytas vertikaliai */
+        align-items: center;              /* Elementai bus išdėstytai centre */
+        gap: $spacing-medium;             /* Nustatome tarpą tarp elementų */
+
+        h1 {
+            max-width: 20ch;              /* Ribojame antraštės ilgį iki 20 simbolių pločio */
+            font-size: 36px;              /* Nustatome didelį šriftą antraštei */
+            color: $text-color;           /* Pritaikome tekstui pasirinktos spalvos kintamąjį */
+        }
+
+        p {
+            max-width: 58ch;              /* Ribojame teksto ilgį iki 58 simbolių pločio */
+            font-size: 18px;              /* Vidutinio dydžio šriftas tekstui */
+            color: $text-color;           /* Pritaikome tekstui pasirinktos spalvos kintamąjį */
+        }
+    }
+
+    // Hero sekcijos vaizdo stiliai
+    &__image {
+        position: absolute;              /* Nustatome vaizdo poziciją kaip absoliučią */
+        top: 0;                           /* Vaizdas bus išdėstytas pačioje viršuje */
+        left: 0;                          /* Vaizdas bus išdėstytas pačiame kairiajame kampe */
+        width: 100%;                      /* Vaizdas užims visą hero sekcijos plotį */
+        height: 100%;                     /* Vaizdas užims visą hero sekcijos aukštį */
+        z-index: 0;                       /* Užtikrina, kad vaizdas bus po visais kitais elementais */
+        
+        img {
+            width: 100%;                  /* Vaizdas užims visą plotį */
+            height: 100%;                 /* Vaizdas užims visą aukštį */
+            object-fit: cover;           /* Užtikrina, kad vaizdas užpildys visą plotą ir išlaikys proporcijas */
+            object-position: center;     /* Užtikrina, kad vaizdas bus sucentravęs */
+        }
+    }
+
+    // Skirtingi hero aukščiai priklausomai nuo puslapio tipo
+    &.main-page {
+        min-height: 50vh;                    /* Standartinis aukštis pagrindiniam puslapiui */
+    }
+    
+    &.collection-page {
+        min-height: 30vh;                    /* Mažesnis aukštis kolekcijos puslapyje */
+    }
+    
+    // Media užklausa mažesniems ekranams (mobiliesiems įrenginiams)
+    @include mobile {
+        min-height: 50vh;                    /* Hero sekcija bus 50% ekrano aukščio mobiliuose įrenginiuose */
+
+        &__content {
+            padding: $spacing-small;         /* Mažesnis vidinis atstumas mobiliuose įrenginiuose */
+            margin: $spacing-small;          /* Mažesnis išorinis atstumas mobiliuose įrenginiuose */
+        }
+
+        &__text h1 {
+            font-size: 28px;                 /* Mažesnis šriftas antraštei mobiliuose įrenginiuose */
+        }
+
+        &__text p {
+            font-size: 16px;                 /* Mažesnis šriftas tekstui mobiliuose įrenginiuose */
+        }
+
+        &.main-page {
+            min-height: 30vh;                /* Mažesnis aukštis pagrindiniam puslapiui mobiliuose įrenginiuose */
+        }
+        
+        &.collection-page {
+            min-height: 30vh;                /* Dar mažesnis aukštis kolekcijos puslapiui mobiliuose įrenginiuose */
+        }
+    }
+}
