@@ -25,7 +25,7 @@ const dresses = {
         "image": "images/wedding_dress_3.jpg",
         "additionalImages": ["images/wedding_dress_3_1.jpg", "images/wedding_dress_3_2.jpg"],
         "description": "Švelnus ir romantiškas stilius.",
-        "price": "Nuomos kaina: 700€",
+        "price": "Nuomos kaina: 1000 €",
         "style": "romantic",
         "color": "ivory",
         "priceCategory": "high"
@@ -35,7 +35,7 @@ const dresses = {
         "image": "images/wedding_dress_4.jpg",
         "additionalImages": ["images/wedding_dress_4_1.jpg", "images/wedding_dress_4_2.jpg"],
         "description": "Puiki išvaizda vakarinei iškilmei.",
-        "price": "Nuomos kaina: 800€",
+        "price": "Nuomos kaina: 1100 €",
         "style": "glamorous",
         "color": "white",
         "priceCategory": "high"
