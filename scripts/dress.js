@@ -8,7 +8,7 @@ const dresses = {
         "price": "Nuomos kaina: 450€",
         "style": "classic",
         "color": "white",
-        "priceCategory": "medium"
+        "priceCategory": "low"
     },
     "2": {
         "title": "Šiuolaikinė suknelė",
@@ -18,7 +18,7 @@ const dresses = {
         "price": "Nuomos kaina: 650€",
         "style": "modern",
         "color": "champagne",
-        "priceCategory": "high"
+        "priceCategory": "medium"
     },
     "3": {
         "title": "Romantiška suknelė",
@@ -28,14 +28,14 @@ const dresses = {
         "price": "Nuomos kaina: 700€",
         "style": "romantic",
         "color": "ivory",
-        "priceCategory": "low"
+        "priceCategory": "high"
     },
     "4": {
         "title": "Glaminė suknelė",
         "image": "images/wedding_dress_4.jpg",
         "additionalImages": ["images/wedding_dress_4_1.jpg", "images/wedding_dress_4_2.jpg"],
         "description": "Puiki išvaizda vakarinei iškilmei.",
-        "price": "Nuomos kaina: 600€",
+        "price": "Nuomos kaina: 800€",
         "style": "glamorous",
         "color": "white",
         "priceCategory": "high"
@@ -48,7 +48,7 @@ const dresses = {
         "price": "Nuomos kaina: 500€",
         "style": "minimalist",
         "color": "ivory",
-        "priceCategory": "medium"
+        "priceCategory": "low"
     },
     "6": {
         "title": "Bohemiška suknelė",
